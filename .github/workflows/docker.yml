@@ -1,4 +1,3 @@
----
 name: latest
 
 "on":
@@ -76,31 +75,16 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
+          context: .
           provenance: false
-          file: latest/Dockerfile.amd64
-          platforms: linux/amd64
+          file: Dockerfile
+          platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            curicows/technic-solder:latest-amd64
-            ghcr.io/curicows/technic-solder:latest-amd64
-            gitea.curicows.com/curicows/technic-solder:latest-amd64
-
-      - name: Build arm64
-        id: arm64
-        uses: docker/build-push-action@v6
-        with:
-          builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
-          provenance: false
-          file: latest/Dockerfile.arm64
-          platforms: linux/arm64
-          push: ${{ github.event_name != 'pull_request' }}
-          labels: ${{ steps.meta.outputs.labels }}
-          tags: |
-            curicows/technic-solder:latest-arm64
-            ghcr.io/curicows/technic-solder:latest-arm64
-            gitea.curicows.com/curicows/technic-solder:latest-arm64
-
-...
+            curicows/technic-solder:latest
+            ghcr.io/curicows/technic-solder:latest
+            gitea.curicows.com/curicows/technic-solder:latest
+            curicows/technic-solder:0.11.0
+            ghcr.io/curicows/technic-solder:0.11.0
+            gitea.curicows.com/curicows/technic-solder:0.11.0
