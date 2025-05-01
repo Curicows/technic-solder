@@ -16,4 +16,4 @@ RUN rm -f /var/www/html/.env*
 ## Install dependencies
 RUN composer install --no-interaction
 
-COPY  ./config /var/www/html/config
+ADD --chown="www-data:www-data" ./config /var/www/html/config
