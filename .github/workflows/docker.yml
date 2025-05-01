@@ -1,18 +1,12 @@
-name: latest
+name: Build docker image
 
 "on":
   push:
     branches:
       - master
-    paths:
-      - latest/*
-      - .github/workflows/docker.yml
   pull_request:
     branches:
       - master
-    paths:
-      - latest/*
-      - .github/workflows/docker.yml
   workflow_dispatch:
 
 jobs:
