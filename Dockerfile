@@ -3,7 +3,7 @@ FROM curicows/php-laravel:latest
 ADD --chown="www-data:www-data" . /var/www/html
 
 # renovate: datasource=github-releases depName=TechnicPack/TechnicSolder
-ENV SOLDER_VERSION=0.12.0
+ENV SOLDER_VERSION=0.12.1
 
 ENV PHP_FPM_POOL_NAME="technic-solder"
 
